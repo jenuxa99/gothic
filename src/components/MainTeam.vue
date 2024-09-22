@@ -56,3 +56,21 @@ defineProps({
     </Carousel>
   </section>
 </template>
+
+<style scoped>
+.carousel__slide--sliding {
+  transition: 0.5s;
+}
+
+.carousel__slide--prev {
+  transform: scale(0.95);
+}
+
+.carousel__slide--next {
+  transform: scale(0.95);
+}
+
+.carousel__slide--active {
+  transform: scale(1.1);
+}
+</style>
