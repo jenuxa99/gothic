@@ -9,8 +9,8 @@ defineProps({
     class="flex flex-col items-center gap-10 pt-10 xl:pt-20 bg-[var(--p-color)] xl:rounded-b-2xl"
   >
     <section class="flex justify-center gap-5 xl:gap-20">
-      <aside v-for="checkbox in checkboxes" :key="checkbox.id" class="">
-        <strong class="text-[var(--r-color)] select-none">{{
+      <aside v-for="checkbox in checkboxes" :key="checkbox.id">
+        <strong class="text-[12px] md:text-sm xl:text-lg text-[var(--r-color)] select-none">{{
           checkbox.label
         }}</strong>
         <nav class="flex flex-col gap-3 pt-4">
@@ -18,7 +18,7 @@ defineProps({
             to="/inDevelop"
             v-for="(item, index) in checkbox.menuItems"
             :key="index"
-            class="font-light text-[14px] leading-[17px] cursor-cartoon hover:translate-x-2 duration-300 select-none"
+            class="font-light text-[10px] md:text-sm leading-[17px] cursor-cartoon lg:hover:translate-x-2 duration-300 select-none"
           >
             {{ item }}
           </RouterLink>

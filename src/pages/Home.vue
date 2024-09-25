@@ -1,6 +1,11 @@
 <script setup>
-import { ref, onMounted, onUnmounted, watch } from "vue";
-import { dataStorage } from "../store/functions.js";
+import {
+  ref,
+  watch,
+  provide,
+} from "vue";
+
+import { dataStorage } from "../store/data.js";
 
 import MainFace from "../components/MainFace.vue";
 import MainDescription from "../components/MainDescription.vue";
@@ -14,11 +19,8 @@ import Footer from "../components/Footer.vue";
 
 const store = dataStorage();
 
-const windowWidth = ref(window.innerWidth);
 const showPopup = ref(false);
 const phone = ref("");
-
-const itemToShow = () => (windowWidth.value < 768 ? 1 : 3);
 
 const isMobile = () => /Mobi|Android/i.test(navigator.userAgent);
 
@@ -33,10 +35,6 @@ const handleClick = () => {
 const closePopup = () => {
   showPopup.value = false;
 };
-
-window.addEventListener("resize", () => {
-  windowWidth.value = window.innerWidth;
-});
 
 const formatPhoneNumber = () => {
   let input = phone.value.replace(/\D/g, "");
@@ -58,17 +56,7 @@ const formatPhoneNumber = () => {
   phone.value = formattedInput;
 };
 
-const handleResize = () => {
-  windowWidth.value = window.innerWidth;
-};
-
-onMounted(() => {
-  window.addEventListener("resize", handleResize);
-});
-
-onUnmounted(() => {
-  window.removeEventListener("resize", handleResize);
-});
+provide("popup", handleClick);
 watch(phone, formatPhoneNumber);
 </script>
 
@@ -79,10 +67,10 @@ watch(phone, formatPhoneNumber);
     <MainService />
     <MainPride :items="store.artists" />
     <MainWorks />
-    <MainTeam :itemToShow="itemToShow" :items="store.artists" />
+    <MainTeam :items="store.artists" />
     <MainPrices :handleClick="handleClick" />
-    <MainPublications :itemToShow="itemToShow" :items="store.paper" />
-    <Footer :checkboxes="store.checkboxes" />
+    <MainPublications :items="store.paper" />
+    <Footer :checkboxes="store.navbarItems" />
     <aside
       v-if="showPopup"
       class="fixed inset-0 bg-gray-900 bg-opacity-80 flex justify-center items-center z-50"

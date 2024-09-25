@@ -1,11 +1,8 @@
 import { createMemoryHistory, createRouter } from "vue-router";
 
-import Home from "./pages/Home.vue";
-import NotReadyYet from "./pages/NotReadyYet.vue";
-
 const routes = [
-  { path: "/", component: Home },
-  { path: "/inDevelop", component: NotReadyYet },
+  { path: "/", component: () => import("./pages/Home.vue") },
+  { path: "/inDevelop", component: () => import("./pages/NotReadyYet.vue") },
 ];
 
 const router = createRouter({

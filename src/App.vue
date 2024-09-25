@@ -1,17 +1,17 @@
 <script setup>
-import { dataStorage } from "./store/functions.js";
 import Header from "./components/Header.vue";
 
-const store = dataStorage();
+window.addEventListener("load", () => {
+  console.log(`Страница загружена за ${performance.now()} мс`);
+});
 </script>
 
 <template>
   <div
-    class="w-full xl:w-3/4 xl:m-auto xl:mt-20 xl:mb-20 m-0 rounded-2xl shadow-sm xl:shadow-2xl"
+    class="w-full xl:max-w-[1280px] m-0 xl:my-20 xl:mx-auto rounded-2xl xl:shadow-2xl"
   >
     <Header
-      :checkboxes="store.checkboxes"
-      class="sticky top-[-15px] shadow-lg xl:rounded-2xl rounded-none"
+      class="sticky top-0 xl:top-[-15px] shadow-sm xl:shadow-xl rounded-b-2xl xl:rounded-2xl"
     />
     <main>
       <RouterView />

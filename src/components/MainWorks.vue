@@ -1,44 +1,51 @@
+<script setup>
+import MainWorksItem from "./MainWorksItem.vue";
+</script>
+
 <template>
-  <section class="flex flex-col items-center justify-center m-auto py-20 px-6">
-    <p class="font-semibold text-[26px] text-center pb-10 text-[var(--r-color)]">Наши работы</p>
-    <div
-      class="flex flex-col xl:grid xl:grid-flow-col-dense xl:grid-cols-[295px_400px_190px_295px] xl:grid-rows-[154px_147px_230px] gap-2 xl:gap-5 m-auto"
+  <section class="flex flex-col items-center py-20 px-6 gap-10 font-montserrat bg-[var(--r-color)] rounded-3xl">
+    <p
+      class="font-semibold text-2xl md:text-3xl text-[var(--p-color)] font-lidren"
     >
+      Наши работы
+    </p>
+    <div
+      class="grid grid-flow-row grid-cols-2 lg:grid-cols-4 lg:grid-rows-3 gap-3 m-auto"
+    >
+      <main-works-item
+        imgURL="./arts/works-ny-graph-1.png"
+        customClass="row-span-2 lg:row-span-3 lg:col-span-1"
+      />
+      <main-works-item
+        imgURL="./arts/works-room-wall-1.png"
+        customClass="lg:row-span-1 lg:col-span-1"
+      />
+      <main-works-item
+        imgURL="./arts/works-loft.png"
+        customClass="lg:col-span-1 lg:row-span-2"
+      />
       <div
-        class="row-span-4 xl:row-span-3 xl:col-span-1 bg-[var(--r-color)] rounded-xl overflow-hidden shadow-2xl"
+        class="col-span-2 lg:row-span-1 lg:col-span-1 bg-[var(--p-color)] rounded-xl overflow-hidden shadow-2xl flex justify-center items-center cursor-cartoon"
       >
-        <img class="w-full h-full" src="/arts/works-ny-graph-1.png" alt="" />
-      </div>
-      <div class="xl:row-span-1 xl:col-span-1 bg-[var(--r-color)] rounded-xl overflow-hidden shadow-2xl">
-        <img class="w-full h-auto" src="/arts/works-room-wall-1.png" alt="" />
-      </div>
-      <div
-        class="xl:col-span-1 xl:row-span-2 bg-[var(--r-color)] rounded-xl overflow-hidden shadow-2xl"
-      >
-        <img class="w-full h-full" src="/arts/works-loft.png" alt="" />
-      </div>
-      <div
-        class="hidden xl:row-span-1 xl:col-span-1 bg-[var(--r-color)] rounded-xl overflow-hidden shadow-2xl xl:flex justify-center items-center cursor-cartoon"
-      >
-        <RouterLink to="/inDevelop"
-          class="text-white font-normal text-lg text-center leading-[30px] font-montserrat"
+        <RouterLink
+          to="/inDevelop"
+          class="text-[var(--r-color)] font-normal xl:text-3xl lg:text-2xl text-center lg:leading-7 xl:leading-10 font-montserrat p-5"
         >
-          Посмотреть портфолио
+          Посмотреть<wbr /> портфолио
         </RouterLink>
       </div>
-      <div
-        class="xl:col-span-1 xl:row-span-2 bg-[var(--r-color)] rounded-xl overflow-hidden shadow-2xl"
-      >
-        <img class="w-auto h-full" src="/arts/works-wall.png" alt="" />
-      </div>
-      <div
-        class="xl:row-span-2 xl:col-span-1 bg-[var(--r-color)] rounded-xl overflow-hidden shadow-2xl"
-      >
-        <img class="w-auto h-full" src="/arts/works-kido.png" alt="" />
-      </div>
-      <div class="xl:row-span-1 xl:col-span-1 bg-[var(--r-color)] rounded-xl overflow-hidden shadow-2xl">
-        <img class="w-full h-full" src="/arts/works-jesus.png" alt="" />
-      </div>
+      <main-works-item
+        imgURL="./arts/wall.png"
+        customClass="lg:col-span-1 lg:row-span-2"
+      />
+      <main-works-item
+        imgURL="./arts/works-kido.png"
+        customClass="lg:row-span-2 lg:col-span-1"
+      />
+      <main-works-item
+        imgURL="./arts/works-jesus.png"
+        customClass="col-span-2 lg:row-span-1 lg:col-span-1"
+      />
     </div>
   </section>
 </template>

@@ -23,7 +23,7 @@ export default {
         },
         scaleUpDown: {
           "0%, 100%": { transform: "scale(1)" },
-          "50%": { transform: "scale(1.5)" },
+          "50%": { transform: "scale(1.3)" },
         },
         neon: {
           "0%, 78%": { color: "inherit", textShadow: "inherit" },
@@ -37,7 +37,7 @@ export default {
         },
       },
       animation: {
-        scaleCycle: "scaleUpDown 60s infinite ease-in-out",
+        scaleCycle: "scaleUpDown 30s infinite ease-in-out",
         pulsateFwd: "pulsateFwd 1s ease-in-out infinite both",
         neon: "neon 2s linear infinite",
       },

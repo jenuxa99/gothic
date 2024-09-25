@@ -1,57 +1,71 @@
 <script setup>
-import { defineComponent } from "vue";
-import { Carousel, Navigation, Slide } from "vue3-carousel";
-
+import { defineComponent, ref } from "vue";
+import { Carousel, Navigation, Slide, Pagination } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
 
-defineComponent({
-  name: "WrapAround",
-  components: {
-    Carousel,
-    Slide,
-    Navigation,
-  },
+defineProps({
+  items: Array,
 });
 
-defineProps({
-  itemToShow: Function,
-  items: Array,
+defineComponent({
+  name: "Breakpoints",
+  name: "WrapAround",
+  name: "Autoplay",
+});
+
+const breakpoints = ref({
+  1024: {
+    itemsToShow: 3,
+  },
 });
 </script>
 
 <template>
-  <section>
-    <p class="font-semibold text-[26px] text-center text-[var(--r-color)]">
+  <section class="pt-20 mb-20">
+    <p
+      class="font-semibold text-2xl md:text-3xl text-[var(--r-color)] font-lidren text-center"
+    >
       Полезные статьи
     </p>
-    <Carousel class="w-full" :items-to-show="itemToShow()" :wrap-around="true">
-      <Slide class="" v-for="slide in items" :key="slide.id">
+    <Carousel
+      :autoplay="2000"
+      :breakpoints="breakpoints"
+      class="w-full"
+      :wrap-around="true"
+      :modelValue="1"
+    >
+      <Slide v-for="slide in items" :key="slide.id">
         <div
-          class="border border-gray-100 rounded-xl shadow-xl my-10 mx-4 w-3/4 xl:w-full"
+          class="min-h-[650px] flex flex-col justify-between p-5 border border-black rounded-xl shadow-xl mx-5 mt-20 bg-[var(--p-color)]"
         >
-          <div class="flex flex-col items-center p-5">
-            <img
-              class="w-full h-96 bg-[var(--r-color)] rounded-lg"
-              :src="slide.imgURL"
-              :alt="slide.title"
-            />
-            <strong class="font-inter text-center text-lg py-2">{{
-              slide.title
-            }}</strong>
-            <p class="font-montserrat text-sm py-2">{{ slide.description }}</p>
-            <div class="flex justify-between w-full py-2">
-              <strong class="font-inter">{{ slide.autor }}</strong>
-              <em class="font-sangha">{{ slide.country }}</em>
-            </div>
-            <RouterLink to="/inDevelop"
-              class="my-2 bg-white text-[var(--r-color)] rounded-md py-2 px-5 cursor-cartoon border border-[var(--r-color)] hover:text-white hover:bg-[var(--r-color)] duration-300"
-            >
-              Подробнее
-            </RouterLink>
+          <img
+            class="w-full h-auto object-cover rounded-xl"
+            :src="slide.imgURL"
+            :alt="slide.title"
+            loading="lazy"
+          />
+          <p class="font-inter font-normal text-left text-lg py-2">
+            {{ slide.title }}
+          </p>
+          <p class="text-left text-sm font-montserrat">
+            {{ slide.description }}
+          </p>
+          <div
+            class="flex justify-between items-center p-3 text-lg font-montserrat"
+          >
+            <em>{{ slide.autor }}</em>
+            <em>{{ slide.country }}</em>
           </div>
+          <RouterLink
+            to="/inDevelop"
+            class="bg-[var(--r-color)] text-white rounded-md w-max my-2 py-2 px-5 cursor-cartoon border border-black duration-300"
+          >
+            Подробнее
+          </RouterLink>
         </div>
       </Slide>
       <template #addons>
+        <Pagination />
         <Navigation />
       </template>
     </Carousel>
