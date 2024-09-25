@@ -41,6 +41,7 @@
 
 * {
   color: var(--text-color);
+  font-display: inherit;
 }
 
 .carousel__prev,

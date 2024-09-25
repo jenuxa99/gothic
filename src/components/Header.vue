@@ -137,21 +137,21 @@ onUnmounted(() => {
               'rotate-[-45deg]': isMenuOpen,
               'rotate-0': !isMenuOpen,
             }"
-            class="w-1/2 h-[2px] bg-[var(--r-color)] rounded-sm transition-all duration-300 origin-left translate-y-[0.45rem]"
+            class="w-1/2 h-[2px] bg-black rounded-sm transition-all duration-300 origin-left translate-y-[0.45rem]"
           ></div>
           <div
             :class="{
               hidden: isMenuOpen,
               block: !isMenuOpen,
             }"
-            class="w-1/2 h-[2px] bg-[var(--r-color)] rounded-md transition-all duration-300 origin-center"
+            class="w-1/2 h-[2px] bg-black rounded-md transition-all duration-300 origin-center"
           ></div>
           <div
             :class="{
               'rotate-[45deg]': isMenuOpen,
               'rotate-0': !isMenuOpen,
             }"
-            class="w-1/2 h-[2px] bg-[var(--r-color)] rounded-md transition-all duration-300 origin-left -translate-y-[0.45rem]"
+            class="w-1/2 h-[2px] bg-black rounded-md transition-all duration-300 origin-left -translate-y-[0.45rem]"
           ></div>
         </div>
       </label>
