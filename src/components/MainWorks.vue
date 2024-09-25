@@ -29,7 +29,7 @@ import MainWorksItem from "./MainWorksItem.vue";
       >
         <RouterLink
           to="/inDevelop"
-          class="text-[var(--r-color)] font-normal xl:text-3xl lg:text-2xl text-center lg:leading-7 xl:leading-10 font-montserrat p-5"
+          class="text-[var(--r-color)] font-normal xl:text-3xl lg:text-2xl text-center lg:leading-7 xl:leading-10 font-montserrat p-5 cursor-cartoon"
         >
           Посмотреть<wbr /> портфолио
         </RouterLink>

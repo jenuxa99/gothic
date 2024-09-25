@@ -7,7 +7,7 @@ const props = defineProps({ handleClick: Function });
     class="flex flex-col lg:flex-row overflow-hidden rounded-3xl mt-10 xl:m-10 shadow-2xl border border-black"
   >
     <div
-      class="order-2 xl:order-1 flex flex-col gap-5 p-10 bg-[var(--p-color)] lg:w-5/6 xl:w-3/5 pb-20"
+      class="order-2 xl:order-1 flex flex-col gap-3 p-10 bg-[var(--p-color)] lg:w-5/6 xl:w-3/5 pb-20"
     >
       <p
         class="font-semibold font-inter text-2xl md:text-4xl xl:text-[54px] xl:leading-[53px] text-[var(--r-color)]"

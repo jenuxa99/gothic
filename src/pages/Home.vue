@@ -26,7 +26,7 @@ const isMobile = () => /Mobi|Android/i.test(navigator.userAgent);
 
 const handleClick = () => {
   if (isMobile()) {
-    window.location.href = "tel:+1234567890";
+    window.location.href = "tel:+79521552637";
   } else {
     showPopup.value = true;
   }
