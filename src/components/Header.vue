@@ -20,7 +20,7 @@ const headerStyle = ref("");
 
 const handleScroll = () => {
   window.scrollY < 100
-    ? (headerStyle.value = "bg-[var(--p-color)]")
+    ? (headerStyle.value = "")
     : (headerStyle.value = "bg-transparent backdrop-blur-xl");
 };
 
